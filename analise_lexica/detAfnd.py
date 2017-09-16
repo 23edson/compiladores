@@ -48,6 +48,7 @@ class determinizeAfnd:
 		self.symbol = list()
 		self.ready = False
 		self.fileReader(self.arq)
+		self.finalStates = list()
 	
 	'''
 		Preenche o AFD com o estado de erro, na aplicação
@@ -134,43 +135,44 @@ class determinizeAfnd:
 			row = list(row)
 			row[0] = str(i)
 			flag = 1
-			estado = self.mapGrammar.keys()[self.mapGrammar.values().index(i)]
-			if(estado[0].isalpha() is not True):
-				estado =  self.subName(estado) 
+			estado = str(i)
+			estado1 = self.mapGrammar.keys()[self.mapGrammar.values().index(i)]
+			#if(estado[0].isalpha() is not True):
+			#	estado =  self.subName(estado) 
 			
 					
-			if(estado[-1] == 'f'):
-				row[flag] = "*" +estado[0:-1]
+			if(estado1[-1] == 'f'):
+				row[flag] = "*" +estado
 			
 			else:
 				row[flag] = estado
 			flag = flag + 1
 		
 			for j in self.auto[i]:
-				estado = ""
-				if(type(j) is list):
+				estado = str(j)
+				#if(type(j) is list):
 				
 					#print("j" + str(j))
-					for k in j:
-						estado = estado + self.mapGrammar.keys()[self.mapGrammar.values().index(k)]
-						if("f" in estado):
-							estado = estado[:-1]					
-						estado = estado +","
-					estado = estado[:-1]+" "
+				#	for k in j:
+				#		estado = estado + self.mapGrammar.keys()[self.mapGrammar.values().index(k)]
+				#		if("f" in estado):
+				#			estado = estado[:-1]					
+				#		estado = estado +","
+				#	estado = estado[:-1]+" "
 				
-				elif(j == ''):
+				#elif(j == ''):
 				
-					estado = estado + "   -   " 
-				else:
+				#	estado = estado + "   -   " 
+				#else:
 					#print("    " + mapGrammar.keys()[mapGrammar.values().index(j)] + "  ")
 				
-					estado = self.mapGrammar.keys()[self.mapGrammar.values().index(j)]				
-					if(estado[0].isalpha() is not True):
-						estado = self.subName(estado) 
-					estado = "   "+ estado
+				#	estado = self.mapGrammar.keys()[self.mapGrammar.values().index(j)]				
+				#	if(estado[0].isalpha() is not True):
+				#		estado = self.subName(estado) 
+				#	estado = "   "+ estado
 								
-					if("f" in estado):
-						estado = estado[:-1]			
+				#	if("f" in estado):
+				#		estado = estado[:-1]			
 				row[flag] = estado			
 				flag = flag + 1
 			tableAFND.append(row)
@@ -231,8 +233,8 @@ class determinizeAfnd:
 				est = est.split(",")
 				est = [(k.strip()) for k in est]
 				
-				print("\n")
-				print("Verificando novo estado:"+str(i))
+				#print("\n")
+				#print("Verificando novo estado:"+str(i))
 				dados = []
 				
 				for k in range(len(self.symbol)):
@@ -259,14 +261,14 @@ class determinizeAfnd:
 						#print(str(i) + " " + str(k))
 						string = [str(qr) for qr in nv]
 						string = ','.join(string)
-						print("Novo Indeterminismo:")
-						print("Estado: "+ str(i) + ", Simbolo: " + chr(self.symbol[k])+" / Estados envolvidos:"+ string + "/ Novo:"+str(self.states-1) )
+						#print("Novo Indeterminismo:")
+						#print("Estado: "+ str(i) + ", Simbolo: " + chr(self.symbol[k])+" / Estados envolvidos:"+ string + "/ Novo:"+str(self.states-1) )
 			
-				if(len(dados)>0):		
-					print("Determinizados")
-					print("Simbolos " + ','.join(dados))
-				else:
-					print("Determinizacao:Ok")			
+				#if(len(dados)>0):		
+				#	print("Determinizados")
+				#	print("Simbolos " + ','.join(dados))
+				#else:
+				#	print("Determinizacao:Ok")			
 						
 						
 			else:			
@@ -275,8 +277,8 @@ class determinizeAfnd:
 						self.deltaAux(i,l,j)
 						string = [str(qr) for qr in j]
 						string = ','.join(string)
-						print("Indeterminismo:")
-						print("Estado: "+ str(i) + ", Simbolo: " + chr(self.symbol[l])+" / Estados envolvidos:"+ string + "/ Novo:"+str(self.states-1) )
+						#print("Indeterminismo:")
+						#print("Estado: "+ str(i) + ", Simbolo: " + chr(self.symbol[l])+" / Estados envolvidos:"+ string + "/ Novo:"+str(self.states-1) )
 					
 						#print(str(len(auto.keys())) + " " +str(len(kys)))
 						#print(auto.keys())
@@ -288,7 +290,11 @@ class determinizeAfnd:
 			#print(kys)
 		self.minimize()
 		self.fillTable()
-		self.ready = True	
+		self.ready = True
+		#if(self.ready == True):
+		#	arq2 = open("automato.txt","w")
+		#	arq2.write(table.table)
+		#	arq2.close()
 	
 	#Remove estado identificado na minimização		
 	def remove_states(self,diff):
@@ -324,7 +330,7 @@ class determinizeAfnd:
 			test = self.mapGrammar.keys()[self.mapGrammar.values().index(k)]
 			if("f" in test):
 				vetor.append(self.mapGrammar[test])
-			
+		self.finalStates[:] = vetor	
 		for i in self.auto.keys():
 			if('TEf' in self.mapGrammar):
 				if(self.mapGrammar['TEf'] == i):

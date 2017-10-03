@@ -11,3 +11,31 @@
 <laco> ::= 'while' <cnd> <op> <oplaco>
 <num> ::= '1'<num> | '2' <num> | '3' <num> | '4' <num> | '5' <num> | '6' <num> | '7' <num> | '8' <num> | '9' <num> | '0' <num> | '0' | '1' | '2' | '3' |'4' | '5' |'6' | '7' | '8' | '9'
 <oplaco> ::= 'continue' | 'break'|  
+
+! Welcome to GOLD Parser Builder 5.2
+
+
+"Name"    = 'noname' 
+"Version" = '201'
+"Author"  = 'nois' 
+"About"   = 'Teste'
+
+"Start Symbol"   = <S>
+
+<S> ::= 'begin' <op> 'end'
+<op>  ::= <putvar><A> | <attr>
+<attr> ::= <var> '='<oper>
+<A> ::= <condicao> | <laco>
+<condicao> ::= 'if' <cnd> 'then' <op><sen>
+<sen> ::= 'else' <op> |
+<putvar> ::= <var>'='<oper>|       
+<var> ::= id
+<oper> ::=   <var><B> |<num><B>
+<B>::= '+' <oper><B>| '-' <oper><B> |  '*' <oper><B> | '/' <oper><B>|
+<cnd> ::= <opl><C>
+<C> ::= <operador><opl>|
+<operador> ::= '<' | '>' | '=='
+<opl> ::=   <oper>| 'true' | 'false'
+<laco> ::= 'while' <cnd> <op> <oplaco>
+<num> ::= const
+<oplaco> ::= 'continue' | 'break'| 

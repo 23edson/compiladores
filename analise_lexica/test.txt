@@ -1,9 +1,1 @@
-
-begin
-	while 1 + 2 > 4
-		
-		if a < e then a = 70
-		else e = a + 1
-
-		continue
-end		
+a * ( a + a 

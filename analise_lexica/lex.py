@@ -7,12 +7,12 @@ class lexAlg:
 		self.ts = []
 		self.n = determinizeAfnd(tokens)
 		self.n.determinize()
-		
+		self.fita = []
 	def lexicalAnalysis(self,source):
 		
 		counter = 1
 		user_info = []
-		fita = ""
+		#self.fita = ""
 		arq = open(source,"r")
 		while True:
 			line = arq.readline()
@@ -26,6 +26,7 @@ class lexAlg:
 			
 				for symbol in line:
 					s = 0
+					error = 0
 					for j in symbol:
 					
 						#se o simbolo nao pertence ao alfabeto
@@ -33,6 +34,8 @@ class lexAlg:
 							#self.ts.append([max(self.n.auto.keys()),symbol,counter])
 							#fita = fita + str(max(self.n.auto.keys())) + ":" + str("symbol") + "\n"
 							#user_info.append("Erro lexico, " + "Token : " + symbol + ";Linha : " + str(counter))
+							if(s > 0):
+								error = 1
 							break
 						else:
 							pos = self.n.symbol.index(ord(j))
@@ -40,12 +43,12 @@ class lexAlg:
 							s = self.n.auto[s][pos]
 					
 					#se alcancou estado final
-					if(s in self.n.finalStates):
-						self.ts.append([s,symbol,counter])
-						fita = fita + str(s) + ":" + str(symbol) + "\n"
+					if(s in self.n.finalStates and error==0):
+						self.ts.append([symbol,s,counter])
+						#self.fita.append([ str(symbol),str(s)])
 					else:
-						self.ts.append([max(self.n.auto.keys()),symbol,counter])
-						fita = fita + str(max(self.n.auto.keys())) + ":" + str(symbol) + "\n"
+						self.ts.append([symbol,max(self.n.auto.keys()),counter])
+						#self.fita.append([ str(symbol),str(max(self.n.auto.keys())) ])
 						user_info.append("Erro lexico, " + "Token : " + symbol + ";Linha : " + str(counter))
 					
 			
@@ -55,10 +58,10 @@ class lexAlg:
 			print(user_info)
 		else : print("Nenhum erro lexico detectado")
 		
-		tape = open("output.txt","w")
-		tape.write(fita)
-		tape.close()
+		#tape = open("output.txt","w")
+		#tape.write(self.fita)
+		#tape.close()
 		arq.close()
 		
-	#p = lexAlg("tokens.txt")
+	#p = lexAlg("temp.txt")
 	#p.lexicalAnalysis("test.txt")

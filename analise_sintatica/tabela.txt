@@ -1,0 +1,1157 @@
+﻿Terminals 23
+ 0      (EOF)
+ 1      (Error)
+ 2      Whitespace
+ 3      '-'
+ 4      '*'
+ 5      '/'
+ 6      '+'
+ 7      '<'
+ 8      '='
+ 9      '=='
+ 10     '>'
+ 11     begin
+ 12     break
+ 13     const
+ 14     continue
+ 15     else
+ 16     end
+ 17     false
+ 18     id
+ 19     if
+ 20     then
+ 21     true
+ 22     while
+Nonterminals 18
+23      <A>
+24      <attr>
+25      <B>
+26      <B1>
+27      <C>
+28      <cnd>
+29      <condicao>
+30      <laco>
+31      <num>
+32      <op>
+33      <oper>
+34      <operador>
+35      <opl>
+36      <oplaco>
+37      <putvar>
+38      <S>
+39      <sen>
+40      <var>
+Rules 35
+0       <S> ::= begin <op> end
+1       <op> ::= <putvar> <A>
+2       <op> ::= <attr>
+3       <op> ::= <A>
+4       <attr> ::= <var> '=' <oper>
+5       <A> ::= <condicao>
+6       <A> ::= <laco>
+7       <condicao> ::= if <cnd> then <op> <sen>
+8       <condicao> ::= if <cnd> then <op>
+9       <sen> ::= else <op>
+10      <putvar> ::= <var> '=' <oper>
+11      <var> ::= id
+12      <oper> ::= <var> <B1>
+13      <oper> ::= <num> <B1>
+14      <oper> ::= <var>
+15      <oper> ::= <num>
+16      <B1> ::= <B> <B1>
+17      <B> ::= '+' <oper> <B>
+18      <B> ::= '-' <oper> <B>
+19      <B> ::= '*' <oper> <B>
+20      <B> ::= '/' <oper> <B>
+21      <cnd> ::= <opl> <C>
+22      <cnd> ::= <opl>
+23      <C> ::= <operador> <opl>
+24      <operador> ::= '<'
+25      <operador> ::= '>'
+26      <operador> ::= '=='
+27      <opl> ::= <oper>
+28      <opl> ::= true
+29      <opl> ::= false
+30      <laco> ::= while <cnd> <op> <oplaco>
+31      <laco> ::= while <cnd> <op>
+32      <num> ::= const
+33      <oplaco> ::= continue
+34      <oplaco> ::= break
+
+
+========================================
+DFA States
+========================================
+
+State 0
+        Goto 1       &09 .. &0D, &20, &85, &A0, &1680, &180E, &2000 .. &200A, &2026, &2028, &2029, &202F, &205F, &3000
+        Goto 2       -
+        Goto 3       *
+        Goto 4       /
+        Goto 5       +
+        Goto 6       <
+        Goto 7       >
+        Goto 8       0123456789
+        Goto 9       Cc
+        Goto 17      Ff
+        Goto 22      AOUaou
+        Goto 23      Ww
+        Goto 28      =
+        Goto 30      Bb
+        Goto 39      Ee
+        Goto 45      Ii
+        Goto 47      Tt
+
+
+State 1
+        Goto 1       &09 .. &0D, &20, &85, &A0, &1680, &180E, &2000 .. &200A, &2026, &2028, &2029, &202F, &205F, &3000
+        Accept Whitespace
+
+
+State 2
+        Accept '-'
+
+
+State 3
+        Accept '*'
+
+
+State 4
+        Accept '/'
+
+
+State 5
+        Accept '+'
+
+
+State 6
+        Accept '<'
+
+
+State 7
+        Accept '>'
+
+
+State 8
+        Goto 8       0123456789
+        Accept const
+
+
+State 9
+        Goto 10      Oo
+
+
+State 10
+        Goto 11      Nn
+
+
+State 11
+        Goto 12      Tt
+
+
+State 12
+        Goto 13      Ii
+
+
+State 13
+        Goto 14      Nn
+
+
+State 14
+        Goto 15      Uu
+
+
+State 15
+        Goto 16      Ee
+
+
+State 16
+        Accept continue
+
+
+State 17
+        Goto 18      Aa
+
+
+State 18
+        Goto 19      Ll
+
+
+State 19
+        Goto 20      Ss
+
+
+State 20
+        Goto 21      Ee
+
+
+State 21
+        Accept false
+
+
+State 22
+        Goto 22      AEIOUaeiou
+        Accept id
+
+
+State 23
+        Goto 24      Hh
+
+
+State 24
+        Goto 25      Ii
+
+
+State 25
+        Goto 26      Ll
+
+
+State 26
+        Goto 27      Ee
+
+
+State 27
+        Accept while
+
+
+State 28
+        Goto 29      =
+        Accept '='
+
+
+State 29
+        Accept '=='
+
+
+State 30
+        Goto 31      Ee
+        Goto 35      Rr
+
+
+State 31
+        Goto 32      Gg
+
+
+State 32
+        Goto 33      Ii
+
+
+State 33
+        Goto 34      Nn
+
+
+State 34
+        Accept begin
+
+
+State 35
+        Goto 36      Ee
+
+
+State 36
+        Goto 37      Aa
+
+
+State 37
+        Goto 38      Kk
+
+
+State 38
+        Accept break
+
+
+State 39
+        Goto 40      Ll
+        Goto 43      Nn
+        Goto 22      AEIOUaeiou
+        Accept id
+
+
+State 40
+        Goto 41      Ss
+
+
+State 41
+        Goto 42      Ee
+
+
+State 42
+        Accept else
+
+
+State 43
+        Goto 44      Dd
+
+
+State 44
+        Accept end
+
+
+State 45
+        Goto 22      AEIOUaeiou
+        Goto 46      Ff
+        Accept id
+
+
+State 46
+        Accept if
+
+
+State 47
+        Goto 48      Hh
+        Goto 51      Rr
+
+
+State 48
+        Goto 49      Ee
+
+
+State 49
+        Goto 50      Nn
+
+
+State 50
+        Accept then
+
+
+State 51
+        Goto 52      Uu
+
+
+State 52
+        Goto 53      Ee
+
+
+State 53
+        Accept true
+
+
+
+
+========================================
+LALR States
+========================================
+
+State 0
+        <S'> ::= _ <S> (EOF)                             <S'> ::= ^ <S> (EOF)
+        <S> ::= _ begin <op> end                         <S> ::= ^ begin <op> end
+
+        begin s 1
+        <S> g 2
+
+
+State 1
+        <S> ::= begin _ <op> end                         <S> ::= begin ^ <op> end
+        <op> ::= _ <putvar> <A>                          <op> ::= ^ <putvar> <A>
+        <op> ::= _ <attr>                                <op> ::= ^ <attr>
+        <op> ::= _ <A>                                   <op> ::= ^ <A>
+        <attr> ::= _ <var> '=' <oper>                    <attr> ::= ^ <var> '=' <oper>
+        <A> ::= _ <condicao>                             <A> ::= ^ <condicao>
+        <A> ::= _ <laco>                                 <A> ::= ^ <laco>
+        <condicao> ::= _ if <cnd> then <op> <sen>        <condicao> ::= ^ if <cnd> then <op> <sen>
+        <condicao> ::= _ if <cnd> then <op>              <condicao> ::= ^ if <cnd> then <op>
+        <putvar> ::= _ <var> '=' <oper>                  <putvar> ::= ^ <var> '=' <oper>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
+        <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
+
+        id s 3
+        if s 4
+        while s 5
+        <A> g 6
+        <attr> g 7
+        <condicao> g 8
+        <laco> g 9
+        <op> g 10
+        <putvar> g 11
+        <var> g 12
+
+
+State 2
+        <S'> ::= <S> _ (EOF)                             <S'> ::= <S> ^ (EOF)
+
+        (EOF) a
+
+
+State 3
+        <var> ::= id _                                   <var> ::= id ^
+
+        '-' r 11
+        '*' r 11
+        '/' r 11
+        '+' r 11
+        '<' r 11
+        '=' r 11
+        '==' r 11
+        '>' r 11
+        break r 11
+        continue r 11
+        else r 11
+        end r 11
+        id r 11
+        if r 11
+        then r 11
+        while r 11
+
+
+State 4
+        <condicao> ::= if _ <cnd> then <op> <sen>        <condicao> ::= if ^ <cnd> then <op> <sen>
+        <condicao> ::= if _ <cnd> then <op>              <condicao> ::= if ^ <cnd> then <op>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
+        <oper> ::= _ <num> <B1>                          <oper> ::= ^ <num> <B1>
+        <oper> ::= _ <var>                               <oper> ::= ^ <var>
+        <oper> ::= _ <num>                               <oper> ::= ^ <num>
+        <cnd> ::= _ <opl> <C>                            <cnd> ::= ^ <opl> <C>
+        <cnd> ::= _ <opl>                                <cnd> ::= ^ <opl>
+        <opl> ::= _ <oper>                               <opl> ::= ^ <oper>
+        <opl> ::= _ true                                 <opl> ::= ^ true
+        <opl> ::= _ false                                <opl> ::= ^ false
+        <num> ::= _ const                                <num> ::= ^ const
+
+        const s 13
+        false s 14
+        id s 3
+        true s 15
+        <cnd> g 16
+        <num> g 17
+        <oper> g 18
+        <opl> g 19
+        <var> g 20
+
+
+State 5
+        <laco> ::= while _ <cnd> <op> <oplaco>           <laco> ::= while ^ <cnd> <op> <oplaco>
+        <laco> ::= while _ <cnd> <op>                    <laco> ::= while ^ <cnd> <op>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
+        <oper> ::= _ <num> <B1>                          <oper> ::= ^ <num> <B1>
+        <oper> ::= _ <var>                               <oper> ::= ^ <var>
+        <oper> ::= _ <num>                               <oper> ::= ^ <num>
+        <cnd> ::= _ <opl> <C>                            <cnd> ::= ^ <opl> <C>
+        <cnd> ::= _ <opl>                                <cnd> ::= ^ <opl>
+        <opl> ::= _ <oper>                               <opl> ::= ^ <oper>
+        <opl> ::= _ true                                 <opl> ::= ^ true
+        <opl> ::= _ false                                <opl> ::= ^ false
+        <num> ::= _ const                                <num> ::= ^ const
+
+        const s 13
+        false s 14
+        id s 3
+        true s 15
+        <cnd> g 21
+        <num> g 17
+        <oper> g 18
+        <opl> g 19
+        <var> g 20
+
+
+State 6
+        <op> ::= <A> _                                   <op> ::= <A> ^
+
+        break r 3
+        continue r 3
+        else r 3
+        end r 3
+
+
+State 7
+        <op> ::= <attr> _                                <op> ::= <attr> ^
+
+        break r 2
+        continue r 2
+        else r 2
+        end r 2
+
+
+State 8
+        <A> ::= <condicao> _                             <A> ::= <condicao> ^
+
+        break r 5
+        continue r 5
+        else r 5
+        end r 5
+
+
+State 9
+        <A> ::= <laco> _                                 <A> ::= <laco> ^
+
+        break r 6
+        continue r 6
+        else r 6
+        end r 6
+
+
+State 10
+        <S> ::= begin <op> _ end                         <S> ::= begin <op> ^ end
+
+        end s 22
+
+
+State 11
+        <op> ::= <putvar> _ <A>                          <op> ::= <putvar> ^ <A>
+        <A> ::= _ <condicao>                             <A> ::= ^ <condicao>
+        <A> ::= _ <laco>                                 <A> ::= ^ <laco>
+        <condicao> ::= _ if <cnd> then <op> <sen>        <condicao> ::= ^ if <cnd> then <op> <sen>
+        <condicao> ::= _ if <cnd> then <op>              <condicao> ::= ^ if <cnd> then <op>
+        <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
+        <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
+
+        if s 4
+        while s 5
+        <A> g 23
+        <condicao> g 8
+        <laco> g 9
+
+
+State 12
+        <attr> ::= <var> _ '=' <oper>                    <attr> ::= <var> ^ '=' <oper>
+        <putvar> ::= <var> _ '=' <oper>                  <putvar> ::= <var> ^ '=' <oper>
+
+        '=' s 24
+
+
+State 13
+        <num> ::= const _                                <num> ::= const ^
+
+        '-' r 32
+        '*' r 32
+        '/' r 32
+        '+' r 32
+        '<' r 32
+        '==' r 32
+        '>' r 32
+        break r 32
+        continue r 32
+        else r 32
+        end r 32
+        id r 32
+        if r 32
+        then r 32
+        while r 32
+
+
+State 14
+        <opl> ::= false _                                <opl> ::= false ^
+
+        '<' r 29
+        '==' r 29
+        '>' r 29
+        id r 29
+        if r 29
+        then r 29
+        while r 29
+
+
+State 15
+        <opl> ::= true _                                 <opl> ::= true ^
+
+        '<' r 28
+        '==' r 28
+        '>' r 28
+        id r 28
+        if r 28
+        then r 28
+        while r 28
+
+
+State 16
+        <condicao> ::= if <cnd> _ then <op> <sen>        <condicao> ::= if <cnd> ^ then <op> <sen>
+        <condicao> ::= if <cnd> _ then <op>              <condicao> ::= if <cnd> ^ then <op>
+
+        then s 25
+
+
+State 17
+        Shift-Reduce Conflict
+
+        <oper> ::= <num> _ <B1>                          <oper> ::= <num> ^ <B1>
+    --> <oper> ::= <num> _                               <oper> ::= <num> ^
+        <B1> ::= _ <B> <B1>                              <B1> ::= ^ <B> <B1>
+    --> <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
+    --> <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
+    --> <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
+    --> <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
+
+        '-' s 26
+        '*' s 27
+        '/' s 28
+        '+' s 29
+        <B> g 30
+        <B1> g 31
+        '<' r 15
+        '==' r 15
+        '>' r 15
+        break r 15
+        continue r 15
+        else r 15
+        end r 15
+        id r 15
+        if r 15
+        then r 15
+        while r 15
+
+
+State 18
+        <opl> ::= <oper> _                               <opl> ::= <oper> ^
+
+        '<' r 27
+        '==' r 27
+        '>' r 27
+        id r 27
+        if r 27
+        then r 27
+        while r 27
+
+
+State 19
+        <cnd> ::= <opl> _ <C>                            <cnd> ::= <opl> ^ <C>
+        <cnd> ::= <opl> _                                <cnd> ::= <opl> ^
+        <C> ::= _ <operador> <opl>                       <C> ::= ^ <operador> <opl>
+        <operador> ::= _ '<'                             <operador> ::= ^ '<'
+        <operador> ::= _ '>'                             <operador> ::= ^ '>'
+        <operador> ::= _ '=='                            <operador> ::= ^ '=='
+
+        '<' s 32
+        '==' s 33
+        '>' s 34
+        <C> g 35
+        <operador> g 36
+        id r 22
+        if r 22
+        then r 22
+        while r 22
+
+
+State 20
+        Shift-Reduce Conflict
+
+        <oper> ::= <var> _ <B1>                          <oper> ::= <var> ^ <B1>
+    --> <oper> ::= <var> _                               <oper> ::= <var> ^
+        <B1> ::= _ <B> <B1>                              <B1> ::= ^ <B> <B1>
+    --> <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
+    --> <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
+    --> <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
+    --> <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
+
+        '-' s 26
+        '*' s 27
+        '/' s 28
+        '+' s 29
+        <B> g 30
+        <B1> g 37
+        '<' r 14
+        '==' r 14
+        '>' r 14
+        break r 14
+        continue r 14
+        else r 14
+        end r 14
+        id r 14
+        if r 14
+        then r 14
+        while r 14
+
+
+State 21
+        <laco> ::= while <cnd> _ <op> <oplaco>           <laco> ::= while <cnd> ^ <op> <oplaco>
+        <laco> ::= while <cnd> _ <op>                    <laco> ::= while <cnd> ^ <op>
+        <op> ::= _ <putvar> <A>                          <op> ::= ^ <putvar> <A>
+        <op> ::= _ <attr>                                <op> ::= ^ <attr>
+        <op> ::= _ <A>                                   <op> ::= ^ <A>
+        <attr> ::= _ <var> '=' <oper>                    <attr> ::= ^ <var> '=' <oper>
+        <A> ::= _ <condicao>                             <A> ::= ^ <condicao>
+        <A> ::= _ <laco>                                 <A> ::= ^ <laco>
+        <condicao> ::= _ if <cnd> then <op> <sen>        <condicao> ::= ^ if <cnd> then <op> <sen>
+        <condicao> ::= _ if <cnd> then <op>              <condicao> ::= ^ if <cnd> then <op>
+        <putvar> ::= _ <var> '=' <oper>                  <putvar> ::= ^ <var> '=' <oper>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
+        <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
+
+        id s 3
+        if s 4
+        while s 5
+        <A> g 6
+        <attr> g 7
+        <condicao> g 8
+        <laco> g 9
+        <op> g 38
+        <putvar> g 11
+        <var> g 12
+
+
+State 22
+        <S> ::= begin <op> end _                         <S> ::= begin <op> end ^
+
+        (EOF) r 0
+
+
+State 23
+        <op> ::= <putvar> <A> _                          <op> ::= <putvar> <A> ^
+
+        break r 1
+        continue r 1
+        else r 1
+        end r 1
+
+
+State 24
+        <attr> ::= <var> '=' _ <oper>                    <attr> ::= <var> '=' ^ <oper>
+        <putvar> ::= <var> '=' _ <oper>                  <putvar> ::= <var> '=' ^ <oper>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
+        <oper> ::= _ <num> <B1>                          <oper> ::= ^ <num> <B1>
+        <oper> ::= _ <var>                               <oper> ::= ^ <var>
+        <oper> ::= _ <num>                               <oper> ::= ^ <num>
+        <num> ::= _ const                                <num> ::= ^ const
+
+        const s 13
+        id s 3
+        <num> g 17
+        <oper> g 39
+        <var> g 20
+
+
+State 25
+        <condicao> ::= if <cnd> then _ <op> <sen>        <condicao> ::= if <cnd> then ^ <op> <sen>
+        <condicao> ::= if <cnd> then _ <op>              <condicao> ::= if <cnd> then ^ <op>
+        <op> ::= _ <putvar> <A>                          <op> ::= ^ <putvar> <A>
+        <op> ::= _ <attr>                                <op> ::= ^ <attr>
+        <op> ::= _ <A>                                   <op> ::= ^ <A>
+        <attr> ::= _ <var> '=' <oper>                    <attr> ::= ^ <var> '=' <oper>
+        <A> ::= _ <condicao>                             <A> ::= ^ <condicao>
+        <A> ::= _ <laco>                                 <A> ::= ^ <laco>
+        <condicao> ::= _ if <cnd> then <op> <sen>        <condicao> ::= ^ if <cnd> then <op> <sen>
+        <condicao> ::= _ if <cnd> then <op>              <condicao> ::= ^ if <cnd> then <op>
+        <putvar> ::= _ <var> '=' <oper>                  <putvar> ::= ^ <var> '=' <oper>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
+        <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
+
+        id s 3
+        if s 4
+        while s 5
+        <A> g 6
+        <attr> g 7
+        <condicao> g 8
+        <laco> g 9
+        <op> g 40
+        <putvar> g 11
+        <var> g 12
+
+
+State 26
+        <B> ::= '-' _ <oper> <B>                         <B> ::= '-' ^ <oper> <B>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
+        <oper> ::= _ <num> <B1>                          <oper> ::= ^ <num> <B1>
+        <oper> ::= _ <var>                               <oper> ::= ^ <var>
+        <oper> ::= _ <num>                               <oper> ::= ^ <num>
+        <num> ::= _ const                                <num> ::= ^ const
+
+        const s 13
+        id s 3
+        <num> g 17
+        <oper> g 41
+        <var> g 20
+
+
+State 27
+        <B> ::= '*' _ <oper> <B>                         <B> ::= '*' ^ <oper> <B>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
+        <oper> ::= _ <num> <B1>                          <oper> ::= ^ <num> <B1>
+        <oper> ::= _ <var>                               <oper> ::= ^ <var>
+        <oper> ::= _ <num>                               <oper> ::= ^ <num>
+        <num> ::= _ const                                <num> ::= ^ const
+
+        const s 13
+        id s 3
+        <num> g 17
+        <oper> g 42
+        <var> g 20
+
+
+State 28
+        <B> ::= '/' _ <oper> <B>                         <B> ::= '/' ^ <oper> <B>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
+        <oper> ::= _ <num> <B1>                          <oper> ::= ^ <num> <B1>
+        <oper> ::= _ <var>                               <oper> ::= ^ <var>
+        <oper> ::= _ <num>                               <oper> ::= ^ <num>
+        <num> ::= _ const                                <num> ::= ^ const
+
+        const s 13
+        id s 3
+        <num> g 17
+        <oper> g 43
+        <var> g 20
+
+
+State 29
+        <B> ::= '+' _ <oper> <B>                         <B> ::= '+' ^ <oper> <B>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
+        <oper> ::= _ <num> <B1>                          <oper> ::= ^ <num> <B1>
+        <oper> ::= _ <var>                               <oper> ::= ^ <var>
+        <oper> ::= _ <num>                               <oper> ::= ^ <num>
+        <num> ::= _ const                                <num> ::= ^ const
+
+        const s 13
+        id s 3
+        <num> g 17
+        <oper> g 44
+        <var> g 20
+
+
+State 30
+        <B1> ::= <B> _ <B1>                              <B1> ::= <B> ^ <B1>
+        <B1> ::= _ <B> <B1>                              <B1> ::= ^ <B> <B1>
+        <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
+        <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
+        <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
+        <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
+
+        '-' s 26
+        '*' s 27
+        '/' s 28
+        '+' s 29
+        <B> g 30
+        <B1> g 45
+
+
+State 31
+        <oper> ::= <num> <B1> _                          <oper> ::= <num> <B1> ^
+
+        '-' r 13
+        '*' r 13
+        '/' r 13
+        '+' r 13
+        '<' r 13
+        '==' r 13
+        '>' r 13
+        break r 13
+        continue r 13
+        else r 13
+        end r 13
+        id r 13
+        if r 13
+        then r 13
+        while r 13
+
+
+State 32
+        <operador> ::= '<' _                             <operador> ::= '<' ^
+
+        const r 24
+        false r 24
+        id r 24
+        true r 24
+
+
+State 33
+        <operador> ::= '==' _                            <operador> ::= '==' ^
+
+        const r 26
+        false r 26
+        id r 26
+        true r 26
+
+
+State 34
+        <operador> ::= '>' _                             <operador> ::= '>' ^
+
+        const r 25
+        false r 25
+        id r 25
+        true r 25
+
+
+State 35
+        <cnd> ::= <opl> <C> _                            <cnd> ::= <opl> <C> ^
+
+        id r 21
+        if r 21
+        then r 21
+        while r 21
+
+
+State 36
+        <C> ::= <operador> _ <opl>                       <C> ::= <operador> ^ <opl>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
+        <oper> ::= _ <num> <B1>                          <oper> ::= ^ <num> <B1>
+        <oper> ::= _ <var>                               <oper> ::= ^ <var>
+        <oper> ::= _ <num>                               <oper> ::= ^ <num>
+        <opl> ::= _ <oper>                               <opl> ::= ^ <oper>
+        <opl> ::= _ true                                 <opl> ::= ^ true
+        <opl> ::= _ false                                <opl> ::= ^ false
+        <num> ::= _ const                                <num> ::= ^ const
+
+        const s 13
+        false s 14
+        id s 3
+        true s 15
+        <num> g 17
+        <oper> g 18
+        <opl> g 46
+        <var> g 20
+
+
+State 37
+        <oper> ::= <var> <B1> _                          <oper> ::= <var> <B1> ^
+
+        '-' r 12
+        '*' r 12
+        '/' r 12
+        '+' r 12
+        '<' r 12
+        '==' r 12
+        '>' r 12
+        break r 12
+        continue r 12
+        else r 12
+        end r 12
+        id r 12
+        if r 12
+        then r 12
+        while r 12
+
+
+State 38
+        Shift-Reduce Conflict
+
+        <laco> ::= while <cnd> <op> _ <oplaco>           <laco> ::= while <cnd> <op> ^ <oplaco>
+    --> <laco> ::= while <cnd> <op> _                    <laco> ::= while <cnd> <op> ^
+    --> <oplaco> ::= _ continue                          <oplaco> ::= ^ continue
+    --> <oplaco> ::= _ break                             <oplaco> ::= ^ break
+
+        break s 47
+        continue s 48
+        <oplaco> g 49
+        else r 31
+        end r 31
+
+
+State 39
+        <attr> ::= <var> '=' <oper> _                    <attr> ::= <var> '=' <oper> ^
+        <putvar> ::= <var> '=' <oper> _                  <putvar> ::= <var> '=' <oper> ^
+
+        break r 4
+        continue r 4
+        else r 4
+        end r 4
+        if r 10
+        while r 10
+
+
+State 40
+        Shift-Reduce Conflict
+
+        <condicao> ::= if <cnd> then <op> _ <sen>        <condicao> ::= if <cnd> then <op> ^ <sen>
+    --> <condicao> ::= if <cnd> then <op> _              <condicao> ::= if <cnd> then <op> ^
+    --> <sen> ::= _ else <op>                            <sen> ::= ^ else <op>
+
+        else s 50
+        <sen> g 51
+        break r 8
+        continue r 8
+        end r 8
+
+
+State 41
+        <B> ::= '-' <oper> _ <B>                         <B> ::= '-' <oper> ^ <B>
+        <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
+        <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
+        <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
+        <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
+
+        '-' s 26
+        '*' s 27
+        '/' s 28
+        '+' s 29
+        <B> g 52
+
+
+State 42
+        <B> ::= '*' <oper> _ <B>                         <B> ::= '*' <oper> ^ <B>
+        <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
+        <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
+        <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
+        <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
+
+        '-' s 26
+        '*' s 27
+        '/' s 28
+        '+' s 29
+        <B> g 53
+
+
+State 43
+        <B> ::= '/' <oper> _ <B>                         <B> ::= '/' <oper> ^ <B>
+        <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
+        <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
+        <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
+        <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
+
+        '-' s 26
+        '*' s 27
+        '/' s 28
+        '+' s 29
+        <B> g 54
+
+
+State 44
+        <B> ::= '+' <oper> _ <B>                         <B> ::= '+' <oper> ^ <B>
+        <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
+        <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
+        <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
+        <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
+
+        '-' s 26
+        '*' s 27
+        '/' s 28
+        '+' s 29
+        <B> g 55
+
+
+State 45
+        <B1> ::= <B> <B1> _                              <B1> ::= <B> <B1> ^
+
+        '-' r 16
+        '*' r 16
+        '/' r 16
+        '+' r 16
+        '<' r 16
+        '==' r 16
+        '>' r 16
+        break r 16
+        continue r 16
+        else r 16
+        end r 16
+        id r 16
+        if r 16
+        then r 16
+        while r 16
+
+
+State 46
+        <C> ::= <operador> <opl> _                       <C> ::= <operador> <opl> ^
+
+        id r 23
+        if r 23
+        then r 23
+        while r 23
+
+
+State 47
+        <oplaco> ::= break _                             <oplaco> ::= break ^
+
+        break r 34
+        continue r 34
+        else r 34
+        end r 34
+
+
+State 48
+        <oplaco> ::= continue _                          <oplaco> ::= continue ^
+
+        break r 33
+        continue r 33
+        else r 33
+        end r 33
+
+
+State 49
+        <laco> ::= while <cnd> <op> <oplaco> _           <laco> ::= while <cnd> <op> <oplaco> ^
+
+        break r 30
+        continue r 30
+        else r 30
+        end r 30
+
+
+State 50
+        <sen> ::= else _ <op>                            <sen> ::= else ^ <op>
+        <op> ::= _ <putvar> <A>                          <op> ::= ^ <putvar> <A>
+        <op> ::= _ <attr>                                <op> ::= ^ <attr>
+        <op> ::= _ <A>                                   <op> ::= ^ <A>
+        <attr> ::= _ <var> '=' <oper>                    <attr> ::= ^ <var> '=' <oper>
+        <A> ::= _ <condicao>                             <A> ::= ^ <condicao>
+        <A> ::= _ <laco>                                 <A> ::= ^ <laco>
+        <condicao> ::= _ if <cnd> then <op> <sen>        <condicao> ::= ^ if <cnd> then <op> <sen>
+        <condicao> ::= _ if <cnd> then <op>              <condicao> ::= ^ if <cnd> then <op>
+        <putvar> ::= _ <var> '=' <oper>                  <putvar> ::= ^ <var> '=' <oper>
+        <var> ::= _ id                                   <var> ::= ^ id
+        <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
+        <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
+
+        id s 3
+        if s 4
+        while s 5
+        <A> g 6
+        <attr> g 7
+        <condicao> g 8
+        <laco> g 9
+        <op> g 56
+        <putvar> g 11
+        <var> g 12
+
+
+State 51
+        <condicao> ::= if <cnd> then <op> <sen> _        <condicao> ::= if <cnd> then <op> <sen> ^
+
+        break r 7
+        continue r 7
+        else r 7
+        end r 7
+
+
+State 52
+        <B> ::= '-' <oper> <B> _                         <B> ::= '-' <oper> <B> ^
+
+        '-' r 18
+        '*' r 18
+        '/' r 18
+        '+' r 18
+
+
+State 53
+        <B> ::= '*' <oper> <B> _                         <B> ::= '*' <oper> <B> ^
+
+        '-' r 19
+        '*' r 19
+        '/' r 19
+        '+' r 19
+
+
+State 54
+        <B> ::= '/' <oper> <B> _                         <B> ::= '/' <oper> <B> ^
+
+        '-' r 20
+        '*' r 20
+        '/' r 20
+        '+' r 20
+
+
+State 55
+        <B> ::= '+' <oper> <B> _                         <B> ::= '+' <oper> <B> ^
+
+        '-' r 17
+        '*' r 17
+        '/' r 17
+        '+' r 17
+
+
+State 56
+        <sen> ::= else <op> _                            <sen> ::= else <op> ^
+
+        break r 9
+        continue r 9
+        else r 9
+        end r 9
+
+
+
+

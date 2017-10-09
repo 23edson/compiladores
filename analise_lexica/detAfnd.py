@@ -288,7 +288,7 @@ class determinizeAfnd:
 				cpy = set(self.auto.keys())-set(kys)
 				[kys.append(x) for x in cpy]
 			#print(kys)
-		self.minimize()
+		#self.minimize()
 		self.fillTable()
 		self.ready = True
 		#if(self.ready == True):

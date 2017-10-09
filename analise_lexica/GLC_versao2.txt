@@ -39,3 +39,62 @@
 <laco> ::= 'while' <cnd> <op> <oplaco>
 <num> ::= const
 <oplaco> ::= 'continue' | 'break'| 
+
+
+
+"Start Symbol"   = <S>
+
+<S> ::= 'begin' <op> 'end'
+<op>  ::= <putvar><A> | <attr>
+<attr> ::= <var> '='<oper>
+<A> ::= <condicao> | <laco>
+<condicao> ::= 'if' <cnd> 'then' <op><sen>
+<sen> ::= 'else' <op> |
+<putvar> ::= <var>'='<oper> |       
+<var> ::= id
+<oper> ::= <var><B1> | <num><B1> | '(' <oper> ')'
+<B1> ::= <B><B1> | 
+<B> ::= '+' <oper> | '-' <oper> | '*' <oper> | '/' <oper>
+<cnd> ::= <opl><C>
+<C> ::= <operador><opl>|
+<operador> ::= '<' | '>' | '=='
+<opl> ::=   <oper>| 'true' | 'false'
+<laco> ::= 'while' <cnd> <op> <oplaco>
+<num> ::= const
+<oplaco> ::= 'continue' | 'break'|
+
+S -> begin OP end
+OP -> PUTVAR A
+OP -> ATTR
+OP -> A
+ATTR -> VAR = OPER
+A -> CONDICAO
+A -> LACO
+CONDICAO -> if CND then OP SEN
+CONDICAO -> if CND then OP
+SEN -> else OP
+PUTVAR -> VAR = OPER      
+VAR -> id
+OPER -> VAR B1
+OPER -> NUM B1
+OPER -> VAR
+OPER -> NUM
+B1 -> B B1
+B -> + OPER B
+B -> - OPER B 
+B -> * OPER B 
+B -> / OPER B
+CND -> OPL C
+CND -> OPL
+C -> OPERADOR OPL
+OPERADOR -> <
+OPERADOR -> >
+OPERADOR -> ==
+OPL ->  OPER
+OPL -> true
+OPL -> false
+LACO -> while CND OP OPLACO
+LACO -> while CND OP
+NUM -> const
+OPLACO -> continue
+OPLACO -> break

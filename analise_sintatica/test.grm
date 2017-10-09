@@ -1,0 +1,20 @@
+"Start Symbol"   = <S>
+
+<S> ::= 'begin' <op> 'end'
+<op>  ::= <putvar><A> | <attr> |<A>
+<attr> ::= <var> '='<oper>
+<A> ::= <condicao> | <laco>
+<condicao> ::= 'if' <cnd> 'then' <op><sen> | 'if' <cnd> 'then' <op>
+<sen> ::= 'else' <op>
+<putvar> ::= <var>'='<oper>       
+<var> ::= id
+<oper> ::= <var><B1> | <num><B1> | <var> | <num> 
+<B1> ::= <B><B1>  
+<B> ::= '+' <oper><B> | '-' <oper><B> | '*' <oper><B> | '/' <oper><B>
+<cnd> ::= <opl><C> | <opl>
+<C> ::= <operador><opl>
+<operador> ::= '<' | '>' | '=='
+<opl> ::=   <oper>| 'true' | 'false'
+<laco> ::= 'while' <cnd> <op> <oplaco> | 'while' <cnd> <op>
+<num> ::= const
+<oplaco> ::= 'continue' | 'break'

@@ -77,13 +77,8 @@ Rules 35
 32      <num> ::= const
 33      <oplaco> ::= continue
 34      <oplaco> ::= break
-
-
-========================================
-DFA States
-========================================
-
-State 0
+DFA States 54
+State 0 17
         Goto 1       &09 .. &0D, &20, &85, &A0, &1680, &180E, &2000 .. &200A, &2026, &2028, &2029, &202F, &205F, &3000
         Goto 2       -
         Goto 3       *
@@ -92,255 +87,142 @@ State 0
         Goto 6       <
         Goto 7       >
         Goto 8       0123456789
-        Goto 9       Cc
-        Goto 17      Ff
-        Goto 22      AOUaou
-        Goto 23      Ww
+        Goto 9       c
+        Goto 17      f
+        Goto 22      aou
+        Goto 23      w
         Goto 28      =
-        Goto 30      Bb
-        Goto 39      Ee
-        Goto 45      Ii
-        Goto 47      Tt
-
-
-State 1
+        Goto 30      b
+        Goto 39      e
+        Goto 45      i
+        Goto 47      t
+State 1 2
         Goto 1       &09 .. &0D, &20, &85, &A0, &1680, &180E, &2000 .. &200A, &2026, &2028, &2029, &202F, &205F, &3000
         Accept Whitespace
-
-
-State 2
+State 2 1
         Accept '-'
-
-
-State 3
+State 3 1
         Accept '*'
-
-
-State 4
+State 4 1
         Accept '/'
-
-
-State 5
+State 5 1
         Accept '+'
-
-
-State 6
+State 6 1
         Accept '<'
-
-
-State 7
+State 7 1
         Accept '>'
-
-
-State 8
+State 8 2
         Goto 8       0123456789
         Accept const
-
-
-State 9
-        Goto 10      Oo
-
-
-State 10
-        Goto 11      Nn
-
-
-State 11
-        Goto 12      Tt
-
-
-State 12
-        Goto 13      Ii
-
-
-State 13
-        Goto 14      Nn
-
-
-State 14
-        Goto 15      Uu
-
-
-State 15
-        Goto 16      Ee
-
-
-State 16
+State 9 1
+        Goto 10      o
+State 10 1
+        Goto 11      n
+State 11 1
+        Goto 12      t
+State 12 1
+        Goto 13      i
+State 13 1
+        Goto 14      n
+State 14 1
+        Goto 15      u
+State 15 1
+        Goto 16      e
+State 16 1
         Accept continue
-
-
-State 17
-        Goto 18      Aa
-
-
-State 18
-        Goto 19      Ll
-
-
-State 19
-        Goto 20      Ss
-
-
-State 20
-        Goto 21      Ee
-
-
-State 21
+State 17 1
+        Goto 18      a
+State 18 1
+        Goto 19      l
+State 19 1
+        Goto 20      s
+State 20 1
+        Goto 21      e
+State 21 1
         Accept false
-
-
-State 22
-        Goto 22      AEIOUaeiou
+State 22 2
+        Goto 22      aeiou
         Accept id
-
-
-State 23
-        Goto 24      Hh
-
-
-State 24
-        Goto 25      Ii
-
-
-State 25
-        Goto 26      Ll
-
-
-State 26
-        Goto 27      Ee
-
-
-State 27
+State 23 1
+        Goto 24      h
+State 24 1
+        Goto 25      i
+State 25 1
+        Goto 26      l
+State 26 1
+        Goto 27      e
+State 27 1
         Accept while
-
-
-State 28
+State 28 2
         Goto 29      =
         Accept '='
-
-
-State 29
+State 29 1
         Accept '=='
-
-
-State 30
-        Goto 31      Ee
-        Goto 35      Rr
-
-
-State 31
-        Goto 32      Gg
-
-
-State 32
-        Goto 33      Ii
-
-
-State 33
-        Goto 34      Nn
-
-
-State 34
+State 30 2
+        Goto 31      e
+        Goto 35      r
+State 31 1
+        Goto 32      g
+State 32 1
+        Goto 33      i
+State 33 1
+        Goto 34      n
+State 34 1
         Accept begin
-
-
-State 35
-        Goto 36      Ee
-
-
-State 36
-        Goto 37      Aa
-
-
-State 37
-        Goto 38      Kk
-
-
-State 38
+State 35 1
+        Goto 36      e
+State 36 1
+        Goto 37      a
+State 37 1
+        Goto 38      k
+State 38 1
         Accept break
-
-
-State 39
-        Goto 40      Ll
-        Goto 43      Nn
-        Goto 22      AEIOUaeiou
+State 39 4
+        Goto 40      l
+        Goto 43      n
+        Goto 22      aeiou
         Accept id
-
-
-State 40
-        Goto 41      Ss
-
-
-State 41
-        Goto 42      Ee
-
-
-State 42
+State 40 1
+        Goto 41      s
+State 41 1
+        Goto 42      e
+State 42 1
         Accept else
-
-
-State 43
-        Goto 44      Dd
-
-
-State 44
+State 43 1
+        Goto 44      d
+State 44 1
         Accept end
-
-
-State 45
-        Goto 22      AEIOUaeiou
-        Goto 46      Ff
+State 45 3
+        Goto 22      aeiou
+        Goto 46      f
         Accept id
-
-
-State 46
+State 46 1
         Accept if
-
-
-State 47
-        Goto 48      Hh
-        Goto 51      Rr
-
-
-State 48
-        Goto 49      Ee
-
-
-State 49
-        Goto 50      Nn
-
-
-State 50
+State 47 2
+        Goto 48      h
+        Goto 51      r
+State 48 1
+        Goto 49      e
+State 49 1
+        Goto 50      n
+State 50 1
         Accept then
-
-
-State 51
-        Goto 52      Uu
-
-
-State 52
-        Goto 53      Ee
-
-
-State 53
+State 51 1
+        Goto 52      u
+State 52 1
+        Goto 53      e
+State 53 1
         Accept true
-
-
-
-
-========================================
-LALR States
-========================================
-
+LALR States 57
 State 0
+la
         <S'> ::= _ <S> (EOF)                             <S'> ::= ^ <S> (EOF)
         <S> ::= _ begin <op> end                         <S> ::= ^ begin <op> end
-
+tb
         begin s 1
         <S> g 2
-
-
 State 1
+la
         <S> ::= begin _ <op> end                         <S> ::= begin ^ <op> end
         <op> ::= _ <putvar> <A>                          <op> ::= ^ <putvar> <A>
         <op> ::= _ <attr>                                <op> ::= ^ <attr>
@@ -354,7 +236,7 @@ State 1
         <var> ::= _ id                                   <var> ::= ^ id
         <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
         <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
-
+tb
         id s 3
         if s 4
         while s 5
@@ -365,17 +247,15 @@ State 1
         <op> g 10
         <putvar> g 11
         <var> g 12
-
-
 State 2
+la
         <S'> ::= <S> _ (EOF)                             <S'> ::= <S> ^ (EOF)
-
+tb
         (EOF) a
-
-
 State 3
+la
         <var> ::= id _                                   <var> ::= id ^
-
+tb
         '-' r 11
         '*' r 11
         '/' r 11
@@ -392,9 +272,8 @@ State 3
         if r 11
         then r 11
         while r 11
-
-
 State 4
+la
         <condicao> ::= if _ <cnd> then <op> <sen>        <condicao> ::= if ^ <cnd> then <op> <sen>
         <condicao> ::= if _ <cnd> then <op>              <condicao> ::= if ^ <cnd> then <op>
         <var> ::= _ id                                   <var> ::= ^ id
@@ -408,7 +287,7 @@ State 4
         <opl> ::= _ true                                 <opl> ::= ^ true
         <opl> ::= _ false                                <opl> ::= ^ false
         <num> ::= _ const                                <num> ::= ^ const
-
+tb
         const s 13
         false s 14
         id s 3
@@ -418,9 +297,8 @@ State 4
         <oper> g 18
         <opl> g 19
         <var> g 20
-
-
 State 5
+la
         <laco> ::= while _ <cnd> <op> <oplaco>           <laco> ::= while ^ <cnd> <op> <oplaco>
         <laco> ::= while _ <cnd> <op>                    <laco> ::= while ^ <cnd> <op>
         <var> ::= _ id                                   <var> ::= ^ id
@@ -434,7 +312,7 @@ State 5
         <opl> ::= _ true                                 <opl> ::= ^ true
         <opl> ::= _ false                                <opl> ::= ^ false
         <num> ::= _ const                                <num> ::= ^ const
-
+tb
         const s 13
         false s 14
         id s 3
@@ -444,51 +322,45 @@ State 5
         <oper> g 18
         <opl> g 19
         <var> g 20
-
-
 State 6
+la
         <op> ::= <A> _                                   <op> ::= <A> ^
-
+tb
         break r 3
         continue r 3
         else r 3
         end r 3
-
-
 State 7
+la
         <op> ::= <attr> _                                <op> ::= <attr> ^
-
+tb
         break r 2
         continue r 2
         else r 2
         end r 2
-
-
 State 8
+la
         <A> ::= <condicao> _                             <A> ::= <condicao> ^
-
+tb
         break r 5
         continue r 5
         else r 5
         end r 5
-
-
 State 9
+la
         <A> ::= <laco> _                                 <A> ::= <laco> ^
-
+tb
         break r 6
         continue r 6
         else r 6
         end r 6
-
-
 State 10
+la
         <S> ::= begin <op> _ end                         <S> ::= begin <op> ^ end
-
+tb
         end s 22
-
-
 State 11
+la
         <op> ::= <putvar> _ <A>                          <op> ::= <putvar> ^ <A>
         <A> ::= _ <condicao>                             <A> ::= ^ <condicao>
         <A> ::= _ <laco>                                 <A> ::= ^ <laco>
@@ -496,24 +368,22 @@ State 11
         <condicao> ::= _ if <cnd> then <op>              <condicao> ::= ^ if <cnd> then <op>
         <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
         <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
-
+tb
         if s 4
         while s 5
         <A> g 23
         <condicao> g 8
         <laco> g 9
-
-
 State 12
+la
         <attr> ::= <var> _ '=' <oper>                    <attr> ::= <var> ^ '=' <oper>
         <putvar> ::= <var> _ '=' <oper>                  <putvar> ::= <var> ^ '=' <oper>
-
+tb
         '=' s 24
-
-
 State 13
+la
         <num> ::= const _                                <num> ::= const ^
-
+tb
         '-' r 32
         '*' r 32
         '/' r 32
@@ -529,11 +399,10 @@ State 13
         if r 32
         then r 32
         while r 32
-
-
 State 14
+la
         <opl> ::= false _                                <opl> ::= false ^
-
+tb
         '<' r 29
         '==' r 29
         '>' r 29
@@ -541,11 +410,10 @@ State 14
         if r 29
         then r 29
         while r 29
-
-
 State 15
+la
         <opl> ::= true _                                 <opl> ::= true ^
-
+tb
         '<' r 28
         '==' r 28
         '>' r 28
@@ -553,26 +421,22 @@ State 15
         if r 28
         then r 28
         while r 28
-
-
 State 16
+la
         <condicao> ::= if <cnd> _ then <op> <sen>        <condicao> ::= if <cnd> ^ then <op> <sen>
         <condicao> ::= if <cnd> _ then <op>              <condicao> ::= if <cnd> ^ then <op>
-
+tb
         then s 25
-
-
 State 17
-        Shift-Reduce Conflict
-
-        <oper> ::= <num> _ <B1>                          <oper> ::= <num> ^ <B1>
+la        
+	<oper> ::= <num> _ <B1>                          <oper> ::= <num> ^ <B1>
     --> <oper> ::= <num> _                               <oper> ::= <num> ^
         <B1> ::= _ <B> <B1>                              <B1> ::= ^ <B> <B1>
     --> <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
     --> <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
     --> <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
     --> <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
-
+tb
         '-' s 26
         '*' s 27
         '/' s 28
@@ -590,11 +454,10 @@ State 17
         if r 15
         then r 15
         while r 15
-
-
 State 18
+la
         <opl> ::= <oper> _                               <opl> ::= <oper> ^
-
+tb
         '<' r 27
         '==' r 27
         '>' r 27
@@ -602,16 +465,15 @@ State 18
         if r 27
         then r 27
         while r 27
-
-
 State 19
+la
         <cnd> ::= <opl> _ <C>                            <cnd> ::= <opl> ^ <C>
         <cnd> ::= <opl> _                                <cnd> ::= <opl> ^
         <C> ::= _ <operador> <opl>                       <C> ::= ^ <operador> <opl>
         <operador> ::= _ '<'                             <operador> ::= ^ '<'
         <operador> ::= _ '>'                             <operador> ::= ^ '>'
         <operador> ::= _ '=='                            <operador> ::= ^ '=='
-
+tb
         '<' s 32
         '==' s 33
         '>' s 34
@@ -621,11 +483,8 @@ State 19
         if r 22
         then r 22
         while r 22
-
-
 State 20
-        Shift-Reduce Conflict
-
+la
         <oper> ::= <var> _ <B1>                          <oper> ::= <var> ^ <B1>
     --> <oper> ::= <var> _                               <oper> ::= <var> ^
         <B1> ::= _ <B> <B1>                              <B1> ::= ^ <B> <B1>
@@ -633,7 +492,7 @@ State 20
     --> <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
     --> <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
     --> <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
-
+tb
         '-' s 26
         '*' s 27
         '/' s 28
@@ -651,9 +510,8 @@ State 20
         if r 14
         then r 14
         while r 14
-
-
 State 21
+la
         <laco> ::= while <cnd> _ <op> <oplaco>           <laco> ::= while <cnd> ^ <op> <oplaco>
         <laco> ::= while <cnd> _ <op>                    <laco> ::= while <cnd> ^ <op>
         <op> ::= _ <putvar> <A>                          <op> ::= ^ <putvar> <A>
@@ -668,7 +526,7 @@ State 21
         <var> ::= _ id                                   <var> ::= ^ id
         <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
         <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
-
+tb
         id s 3
         if s 4
         while s 5
@@ -679,24 +537,21 @@ State 21
         <op> g 38
         <putvar> g 11
         <var> g 12
-
-
 State 22
+la
         <S> ::= begin <op> end _                         <S> ::= begin <op> end ^
-
+tb
         (EOF) r 0
-
-
 State 23
+la
         <op> ::= <putvar> <A> _                          <op> ::= <putvar> <A> ^
-
+tb
         break r 1
         continue r 1
         else r 1
         end r 1
-
-
 State 24
+la
         <attr> ::= <var> '=' _ <oper>                    <attr> ::= <var> '=' ^ <oper>
         <putvar> ::= <var> '=' _ <oper>                  <putvar> ::= <var> '=' ^ <oper>
         <var> ::= _ id                                   <var> ::= ^ id
@@ -705,15 +560,14 @@ State 24
         <oper> ::= _ <var>                               <oper> ::= ^ <var>
         <oper> ::= _ <num>                               <oper> ::= ^ <num>
         <num> ::= _ const                                <num> ::= ^ const
-
+tb
         const s 13
         id s 3
         <num> g 17
         <oper> g 39
         <var> g 20
-
-
 State 25
+la
         <condicao> ::= if <cnd> then _ <op> <sen>        <condicao> ::= if <cnd> then ^ <op> <sen>
         <condicao> ::= if <cnd> then _ <op>              <condicao> ::= if <cnd> then ^ <op>
         <op> ::= _ <putvar> <A>                          <op> ::= ^ <putvar> <A>
@@ -728,7 +582,7 @@ State 25
         <var> ::= _ id                                   <var> ::= ^ id
         <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
         <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
-
+tb
         id s 3
         if s 4
         while s 5
@@ -739,9 +593,8 @@ State 25
         <op> g 40
         <putvar> g 11
         <var> g 12
-
-
 State 26
+la
         <B> ::= '-' _ <oper> <B>                         <B> ::= '-' ^ <oper> <B>
         <var> ::= _ id                                   <var> ::= ^ id
         <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
@@ -749,15 +602,14 @@ State 26
         <oper> ::= _ <var>                               <oper> ::= ^ <var>
         <oper> ::= _ <num>                               <oper> ::= ^ <num>
         <num> ::= _ const                                <num> ::= ^ const
-
+tb
         const s 13
         id s 3
         <num> g 17
         <oper> g 41
         <var> g 20
-
-
 State 27
+la
         <B> ::= '*' _ <oper> <B>                         <B> ::= '*' ^ <oper> <B>
         <var> ::= _ id                                   <var> ::= ^ id
         <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
@@ -765,15 +617,14 @@ State 27
         <oper> ::= _ <var>                               <oper> ::= ^ <var>
         <oper> ::= _ <num>                               <oper> ::= ^ <num>
         <num> ::= _ const                                <num> ::= ^ const
-
+tb
         const s 13
         id s 3
         <num> g 17
         <oper> g 42
         <var> g 20
-
-
 State 28
+la
         <B> ::= '/' _ <oper> <B>                         <B> ::= '/' ^ <oper> <B>
         <var> ::= _ id                                   <var> ::= ^ id
         <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
@@ -781,15 +632,14 @@ State 28
         <oper> ::= _ <var>                               <oper> ::= ^ <var>
         <oper> ::= _ <num>                               <oper> ::= ^ <num>
         <num> ::= _ const                                <num> ::= ^ const
-
+tb
         const s 13
         id s 3
         <num> g 17
         <oper> g 43
         <var> g 20
-
-
 State 29
+la
         <B> ::= '+' _ <oper> <B>                         <B> ::= '+' ^ <oper> <B>
         <var> ::= _ id                                   <var> ::= ^ id
         <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
@@ -797,33 +647,31 @@ State 29
         <oper> ::= _ <var>                               <oper> ::= ^ <var>
         <oper> ::= _ <num>                               <oper> ::= ^ <num>
         <num> ::= _ const                                <num> ::= ^ const
-
+tb
         const s 13
         id s 3
         <num> g 17
         <oper> g 44
         <var> g 20
-
-
 State 30
+la
         <B1> ::= <B> _ <B1>                              <B1> ::= <B> ^ <B1>
         <B1> ::= _ <B> <B1>                              <B1> ::= ^ <B> <B1>
         <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
         <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
         <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
         <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
-
+tb
         '-' s 26
         '*' s 27
         '/' s 28
         '+' s 29
         <B> g 30
         <B1> g 45
-
-
 State 31
+la
         <oper> ::= <num> <B1> _                          <oper> ::= <num> <B1> ^
-
+tb
         '-' r 13
         '*' r 13
         '/' r 13
@@ -839,45 +687,40 @@ State 31
         if r 13
         then r 13
         while r 13
-
-
 State 32
+la
         <operador> ::= '<' _                             <operador> ::= '<' ^
-
+tb
         const r 24
         false r 24
         id r 24
         true r 24
-
-
 State 33
+la
         <operador> ::= '==' _                            <operador> ::= '==' ^
-
+tb
         const r 26
         false r 26
         id r 26
         true r 26
-
-
 State 34
+la
         <operador> ::= '>' _                             <operador> ::= '>' ^
-
+tb
         const r 25
         false r 25
         id r 25
         true r 25
-
-
 State 35
+la
         <cnd> ::= <opl> <C> _                            <cnd> ::= <opl> <C> ^
-
+tb
         id r 21
         if r 21
         then r 21
         while r 21
-
-
 State 36
+la
         <C> ::= <operador> _ <opl>                       <C> ::= <operador> ^ <opl>
         <var> ::= _ id                                   <var> ::= ^ id
         <oper> ::= _ <var> <B1>                          <oper> ::= ^ <var> <B1>
@@ -888,7 +731,7 @@ State 36
         <opl> ::= _ true                                 <opl> ::= ^ true
         <opl> ::= _ false                                <opl> ::= ^ false
         <num> ::= _ const                                <num> ::= ^ const
-
+tb
         const s 13
         false s 14
         id s 3
@@ -897,11 +740,10 @@ State 36
         <oper> g 18
         <opl> g 46
         <var> g 20
-
-
 State 37
+la
         <oper> ::= <var> <B1> _                          <oper> ::= <var> <B1> ^
-
+tb
         '-' r 12
         '*' r 12
         '/' r 12
@@ -917,108 +759,96 @@ State 37
         if r 12
         then r 12
         while r 12
-
-
 State 38
-        Shift-Reduce Conflict
-
+la
         <laco> ::= while <cnd> <op> _ <oplaco>           <laco> ::= while <cnd> <op> ^ <oplaco>
     --> <laco> ::= while <cnd> <op> _                    <laco> ::= while <cnd> <op> ^
     --> <oplaco> ::= _ continue                          <oplaco> ::= ^ continue
     --> <oplaco> ::= _ break                             <oplaco> ::= ^ break
-
+tb
         break s 47
         continue s 48
         <oplaco> g 49
         else r 31
         end r 31
-
-
 State 39
+la
         <attr> ::= <var> '=' <oper> _                    <attr> ::= <var> '=' <oper> ^
         <putvar> ::= <var> '=' <oper> _                  <putvar> ::= <var> '=' <oper> ^
-
+tb
         break r 4
         continue r 4
         else r 4
         end r 4
         if r 10
         while r 10
-
-
 State 40
-        Shift-Reduce Conflict
-
+la
         <condicao> ::= if <cnd> then <op> _ <sen>        <condicao> ::= if <cnd> then <op> ^ <sen>
     --> <condicao> ::= if <cnd> then <op> _              <condicao> ::= if <cnd> then <op> ^
     --> <sen> ::= _ else <op>                            <sen> ::= ^ else <op>
-
+tb
         else s 50
         <sen> g 51
         break r 8
         continue r 8
         end r 8
-
-
 State 41
+la
         <B> ::= '-' <oper> _ <B>                         <B> ::= '-' <oper> ^ <B>
         <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
         <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
         <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
         <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
-
+tb
         '-' s 26
         '*' s 27
         '/' s 28
         '+' s 29
         <B> g 52
-
-
 State 42
+la
         <B> ::= '*' <oper> _ <B>                         <B> ::= '*' <oper> ^ <B>
         <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
         <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
         <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
         <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
-
+tb
         '-' s 26
         '*' s 27
         '/' s 28
         '+' s 29
         <B> g 53
-
-
 State 43
+la
         <B> ::= '/' <oper> _ <B>                         <B> ::= '/' <oper> ^ <B>
         <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
         <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
         <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
         <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
-
+tb
         '-' s 26
         '*' s 27
         '/' s 28
         '+' s 29
         <B> g 54
-
-
 State 44
+la
         <B> ::= '+' <oper> _ <B>                         <B> ::= '+' <oper> ^ <B>
         <B> ::= _ '+' <oper> <B>                         <B> ::= ^ '+' <oper> <B>
         <B> ::= _ '-' <oper> <B>                         <B> ::= ^ '-' <oper> <B>
         <B> ::= _ '*' <oper> <B>                         <B> ::= ^ '*' <oper> <B>
         <B> ::= _ '/' <oper> <B>                         <B> ::= ^ '/' <oper> <B>
-
+tb
         '-' s 26
         '*' s 27
         '/' s 28
         '+' s 29
         <B> g 55
-
-
 State 45
+la
         <B1> ::= <B> <B1> _                              <B1> ::= <B> <B1> ^
-
+tb
         '-' r 16
         '*' r 16
         '/' r 16
@@ -1034,45 +864,40 @@ State 45
         if r 16
         then r 16
         while r 16
-
-
 State 46
+la
         <C> ::= <operador> <opl> _                       <C> ::= <operador> <opl> ^
-
+tb
         id r 23
         if r 23
         then r 23
         while r 23
-
-
 State 47
+la
         <oplaco> ::= break _                             <oplaco> ::= break ^
-
+tb
         break r 34
         continue r 34
         else r 34
         end r 34
-
-
 State 48
+la
         <oplaco> ::= continue _                          <oplaco> ::= continue ^
-
+tb
         break r 33
         continue r 33
         else r 33
         end r 33
-
-
 State 49
+la
         <laco> ::= while <cnd> <op> <oplaco> _           <laco> ::= while <cnd> <op> <oplaco> ^
-
+tb
         break r 30
         continue r 30
         else r 30
         end r 30
-
-
 State 50
+la
         <sen> ::= else _ <op>                            <sen> ::= else ^ <op>
         <op> ::= _ <putvar> <A>                          <op> ::= ^ <putvar> <A>
         <op> ::= _ <attr>                                <op> ::= ^ <attr>
@@ -1086,7 +911,7 @@ State 50
         <var> ::= _ id                                   <var> ::= ^ id
         <laco> ::= _ while <cnd> <op> <oplaco>           <laco> ::= ^ while <cnd> <op> <oplaco>
         <laco> ::= _ while <cnd> <op>                    <laco> ::= ^ while <cnd> <op>
-
+tb
         id s 3
         if s 4
         while s 5
@@ -1097,61 +922,51 @@ State 50
         <op> g 56
         <putvar> g 11
         <var> g 12
-
-
 State 51
+la
         <condicao> ::= if <cnd> then <op> <sen> _        <condicao> ::= if <cnd> then <op> <sen> ^
-
+tb
         break r 7
         continue r 7
         else r 7
         end r 7
-
-
 State 52
+la
         <B> ::= '-' <oper> <B> _                         <B> ::= '-' <oper> <B> ^
-
+tb
         '-' r 18
         '*' r 18
         '/' r 18
         '+' r 18
-
-
 State 53
+la
         <B> ::= '*' <oper> <B> _                         <B> ::= '*' <oper> <B> ^
-
+tb
         '-' r 19
         '*' r 19
         '/' r 19
         '+' r 19
-
-
 State 54
+la
         <B> ::= '/' <oper> <B> _                         <B> ::= '/' <oper> <B> ^
-
+tb
         '-' r 20
         '*' r 20
         '/' r 20
         '+' r 20
-
-
 State 55
+la
         <B> ::= '+' <oper> <B> _                         <B> ::= '+' <oper> <B> ^
-
+tb
         '-' r 17
         '*' r 17
         '/' r 17
         '+' r 17
-
-
 State 56
+la
         <sen> ::= else <op> _                            <sen> ::= else <op> ^
-
+tb
         break r 9
         continue r 9
         else r 9
         end r 9
-
-
-
-

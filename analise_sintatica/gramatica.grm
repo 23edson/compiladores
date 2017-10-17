@@ -1,0 +1,22 @@
+"Start Symbol"   = <S>
+                 
+id    = [aeiou]+
+const = [0123456789]+
+
+<S> ::= 'begin' <op> 'end'
+<op>  ::= <putvar><A> | <attr> |<A>
+<attr> ::= <var> '=' <B>
+<A> ::= <condicao> | <laco>
+<condicao> ::= 'if' <cnd> 'then' <op><sen>
+<sen> ::= 'else' <op> |
+<putvar> ::= <var>'='<B>       
+<var> ::= id
+<oper> ::=  <var> | <num>  
+<B> ::= <oper> '+' <B> | <oper> '-' <B> | <oper> '*' <B> | <oper> '/' <B> | '(' <B> ')' | <oper>
+<cnd> ::= <opl><C> | <opl>
+<C> ::= <operador><opl>
+<operador> ::= '<' | '>' | '=='
+<opl> ::=   <B>| 'true' | 'false'
+<laco> ::= 'while' <cnd> <condlaco>
+<condlaco>::= <op> 'continue' | <op> 'break' | 'continue' | 'break' | <op>
+<num> ::= const

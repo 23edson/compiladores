@@ -1,10 +1,9 @@
 import sys
 from collections import defaultdict
-sys.path.append('../analise_lexica/')
 from lex import *
 from ap import Pilha
 slr = defaultdict(list)
-
+dfa_t = defaultdict(list)
 #slr[-1] = [['+','*','(',')','id','$'],['E','T','F']]
 #slr[0] =  [['','','s4','','s5',''],['1','2','3']]
 #slr[1] =  [['s6','','','','','acc'],['','','']]
@@ -81,17 +80,29 @@ def readGOLDParserFile(arq):
 			st = st.split()
 			stage = 3
 			counter  =0
+			#state = 0
 		elif((("DFA" in st[0]) and stage==3)and counter < int(st[2])):
-			#print(f)
+			
 			f = f.strip()
 			f = f.split()
 			if("State" in f):
 				state = int(f[1])
-				
+				dfa_t[state] = []
+				#counter= counter + 1
+				#print(state)
+				#continue
+			#print(f)		
 			if("Accept" in f):
 				dfa[state] = f[1]
-				counter= counter + 1
+				
+			elif("Goto" in f):
+				string = f[2] + ":" +f[1]
+				#print(string + str(f[1]))
+				#print(str(counter))
+				dfa_t[state].append(str(string))
+			counter = counter + 1
 		elif("LALR States" in f):
+			
 			st = f.strip()
 			st = st.split()
 			stage = 4
@@ -127,11 +138,12 @@ def readGOLDParserFile(arq):
 			
 			if(slrFlag == 1):
 				#state = int(f[1])
-				
+				letIn = 0
 				if(state not in slr.keys()):
 					slr[state] = [['']*len(slr[-1][0]),['']*len(slr[-1][1])]
-				
-				if("<" not in f[0]):
+				if("<" == f[0][1] and len(f[0])==3):
+					letIn = 1
+				if("<" not in f[0] or letIn == 1):
 					indice = slr[-1][0].index(f[0])
 					if(len(f)==2):
 						slr[state][0][indice] = str(f[1])
@@ -148,7 +160,7 @@ def getError(source,target):
 	indx = [ i[0] for i in enumerate(slr[source][0]) if i[1]!='']
 	
 	rt = [slr[-1][0][i] for i in indx]
-	rt = ' ou '.join(rt)
+	rt = ' , '.join(rt)
 	ft = [i[1][0] for i in enumerate(p.ts) if i[0] < target]
 	ft = ' '.join(ft)
 	ft = ft + ' >#<'
@@ -208,7 +220,8 @@ def syntaxAnalysis(debug = False):
 		#if(pilha.tam == 2 and pilha.topo[0]==nonterminals[1] and pos >= len(p.ts)):
 		#	print("Sintaticamente correto")
 		#	break
-p = lexAlg("../analise_lexica/temp.txt")
-p.lexicalAnalysis("../analise_lexica/test.txt")
-readGOLDParserFile("gramm.txt")
+readGOLDParserFile("gramatica.txt")
+p = lexAlg(dfa_t,dfa)
+p.lexicalAnalysis("test.txt")
 syntaxAnalysis(True)
+#syntaxAnalysis(True)

@@ -288,7 +288,7 @@ class determinizeAfnd:
 				cpy = set(self.auto.keys())-set(kys)
 				[kys.append(x) for x in cpy]
 			#print(kys)
-		#self.minimize()
+		self.minimize()
 		self.fillTable()
 		self.ready = True
 		#if(self.ready == True):
@@ -330,7 +330,8 @@ class determinizeAfnd:
 			test = self.mapGrammar.keys()[self.mapGrammar.values().index(k)]
 			if("f" in test):
 				vetor.append(self.mapGrammar[test])
-		self.finalStates[:] = vetor	
+		self.finalStates[:] = vetor
+		
 		for i in self.auto.keys():
 			if('TEf' in self.mapGrammar):
 				if(self.mapGrammar['TEf'] == i):

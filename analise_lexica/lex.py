@@ -1,16 +1,35 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+''' 
+PROJETO I : Análise léxica.
+
+Aluno: Edson Lemes da Silva;
+Disciplina: Compiladores;
+Professor: Braulio Adriano de Mello;
+
+A Classe lexAlg define os atributos e métodos utilizados para
+execução da análise léxica de um código-fonte. A verificação
+acontece a partir da construção do autômato finito com a implementação 
+executada na disciplina de LFA.
+
+'''
+
 from detAfnd import *
 
 class lexAlg:
+
+	#Construtor para as estruturas necessarias
 	def __init__(self,tokens):
-		self.ts = []
+		self.ts = [] #Tabela de simbolos
 		self.n = determinizeAfnd(tokens)
-		self.n.determinize()
+		self.n.determinize() #Automato finito
 		self.fita = []
+	
 	def lexicalAnalysis(self,source):
 		
 		counter = 1
+		
+		#Lista com os possiveis erros lexicos
 		user_info = []
 		#self.fita = ""
 		arq = open(source,"r")
@@ -18,15 +37,17 @@ class lexAlg:
 			line = arq.readline()
 			if(line == ''): break
 			
+			#Separador de tokens: espaço em branco
 			line = line.strip()
 			line = line.split()
 			
 			#se a linha nao esta sem texto
 			if (line != ''):
-			
+				#Verificado token a token
 				for symbol in line:
 					s = 0
 					error = 0
+					#Verifica simbolo a simbolo
 					for j in symbol:
 					
 						#se o simbolo nao pertence ao alfabeto
@@ -58,9 +79,6 @@ class lexAlg:
 			print(user_info)
 		else : print("Nenhum erro lexico detectado")
 		
-		#tape = open("output.txt","w")
-		#tape.write(self.fita)
-		#tape.close()
 		arq.close()
 		
 	#p = lexAlg("temp.txt")

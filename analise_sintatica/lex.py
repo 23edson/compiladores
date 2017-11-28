@@ -74,12 +74,17 @@ class lexAlg:
 		
 		if(len(user_info) > 0):
 			print(user_info)
-		else : print("Nenhum erro lexico detectado")
+			return -1
+		else: 
+			print("Nenhum erro lexico detectado")
+			return 0
 		
 		#tape = open("output.txt","w")
 		#tape.write(self.fita)
 		#tape.close()
 		arq.close()
+		
+		
 		
 	#p = lexAlg()
 	#p.lexicalAnalysis("test.txt")

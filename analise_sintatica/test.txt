@@ -4,7 +4,7 @@ begin
 		aio = a + 1
 
 	else
-		while ( a + 1 ) == true
+		while ( a + + 1 ) == true
 			break
 
 end

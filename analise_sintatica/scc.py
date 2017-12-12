@@ -1,22 +1,24 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import sys
 from collections import defaultdict
 from lex import *
 from ap import Pilha
 
-#slr[-1] = [['+','*','(',')','id','$'],['E','T','F']]
-#slr[0] =  [['','','s4','','s5',''],['1','2','3']]
-#slr[1] =  [['s6','','','','','acc'],['','','']]
-#slr[2] = [['r2','s7','','r2','','r2'],['','','']]
-#slr[3] = [['r4','r4','','r4','','r4'],['','','']]
-#slr[4] = [['','','s4','','s5',''],['8','2','3']]
-#slr[5] = [['r6','r6','','r6','','r6'],['','','']]
-#slr[6] = [['','','s4','','s5',''],['','9','3']]
-#slr[7] = [['','','s4','','s5',''],['','','10']]
-#slr[8] = [['s6','','','s11','',''],['','','']]
-#slr[9] = [['r1','s7','','r1','','r1'],['','','']]
-#slr[10] = [['r3','r3','','r3','','r3'],['','','']]
-#slr[11] = [['r5','r5','','r5','','r5'],['','','']]
+''' 
+PROJETO II : Análise sintática.
 
+Aluno: Edson Lemes da Silva;
+Disciplina: Compiladores;
+Professor: Braulio Adriano de Mello;
+
+A Classe styxAlg define os atributos e métodos utilizados para
+execução da análise sintática de um código-fonte, a partir da análise léxica gerada. A construção da tabela de 
+parsing foi feita através da definição de um GLC utilizando a ferramenta GoldParser para gerar a tabela lalr para a 
+respectiva gramática.
+
+'''
 
 
 
@@ -188,6 +190,7 @@ class styxAlg:
 			pos = 1
 			pos_fita = 0
 			while(1):
+				#Percorre a fita token a token
 				if(pos_fita >= len(self.p.ts)):
 					ind = 0
 				else:
@@ -196,6 +199,7 @@ class styxAlg:
 					ind = self.slr[-1][0].index(ps)
 		
 		
+				#Verifica na tabela lalr o mapeamento para o token
 				rs = self.slr[pilha.topo()[1]][0][ind]
 				if(debug):
 					print("Pilha: " + str(pilha.dados))

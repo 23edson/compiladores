@@ -70,7 +70,7 @@ class lexAlg:
 					else:
 						self.ts.append([symbol,max(self.n.auto.keys()),counter])
 						#self.fita.append([ str(symbol),str(max(self.n.auto.keys())) ])
-						user_info.append("Erro lexico, " + "Token : " + symbol + ";Linha : " + str(counter))
+						user_info.append("Erro lexico, " + "Token : " + symbol + ", Linha : " + str(counter))
 					
 			
 			counter = counter + 1

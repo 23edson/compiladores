@@ -49,9 +49,7 @@ class lexAlg:
 						next = self.getSymbol(j,s,symbol)
 						#se o simbolo nao pertence ao alfabeto
 						if(next[0] > max(self.n.keys())):
-							#self.ts.append([max(self.n.auto.keys()),symbol,counter])
-							#fita = fita + str(max(self.n.auto.keys())) + ":" + str("symbol") + "\n"
-							#user_info.append("Erro lexico, " + "Token : " + symbol + ";Linha : " + str(counter))
+							
 							if(s > 0):
 								error = 1
 							break
@@ -66,7 +64,7 @@ class lexAlg:
 						#self.fita.append([ str(symbol),str(s)])
 					if(error==1):
 						self.ts.append([symbol,max(self.n)+1,counter])
-						#self.fita.append([ str(symbol),str(max(self.n.auto.keys())) ])
+						
 						user_info.append("Erro lexico, " + "Token : " + symbol + ";Linha : " + str(counter))
 					
 			

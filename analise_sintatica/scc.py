@@ -239,6 +239,6 @@ class styxAlg:
 
 
 
-test = styxAlg("gramatica.txt","test.txt")
-test.syntaxAnalysis(True)
+test = styxAlg("table.txt","test.txt")
+test.syntaxAnalysis(False)
 #syntaxAnalysis(True)
